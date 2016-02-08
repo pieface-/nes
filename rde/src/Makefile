@@ -1,3 +1,3 @@
 all:
-	g++ *.cpp *.h -o ../bin/rde
+	g++ -Wall *.cpp *.h -o ../bin/rde
 
