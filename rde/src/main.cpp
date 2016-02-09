@@ -35,6 +35,7 @@ int main (int argc, char *argv[])
 	else
 	{
 		printf("%s is a valid rom\n", argv[1]);
+		printf("%s has %d PRG banks and %d CHR banks\n", argv[1], getPrgBanks(header), getChrBanks(header));
 	}
 }
 
