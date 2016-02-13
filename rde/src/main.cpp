@@ -42,6 +42,6 @@ int main (int argc, char *argv[])
 	rom.seekg(pos);
 	rom.read(spriteData, 16);	
 	Sprite* s = new Sprite(spriteData);
-	cout << s->toString() << endl;
+	printf("%s\n", s->toString());
 }
 
