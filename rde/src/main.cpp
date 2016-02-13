@@ -37,7 +37,7 @@ int main (int argc, char *argv[])
 	printf("%s is a valid rom\n", argv[1]);
 	printf("%s has %d PRG banks and %d CHR banks\n", argv[1], getPrgBanks(header), getChrBanks(header));
 	pos = setPos(header, CHR_BANK, 0);
-	pos += 3*16;
+	pos += 0*16;
 	printf("The pos is at %d\n", pos);
 	rom.seekg(pos);
 	rom.read(spriteData, 16);	

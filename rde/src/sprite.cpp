@@ -11,8 +11,8 @@ Sprite::Sprite(char chr[16])
 	for(int i = 0; i < 8; i++)
 		for(int j = 0; j < 8; j++)
 		{
-			char a =  (chr[0+i] & 1 << j) >> j;
-			char b = (chr[8+i] & 1 << j) >> j;
+			char a =  (chr[0+i] & 1 << (7-j)) >> (7-j);
+			char b = (chr[8+i] & 1 << (7-j)) >> (7-j);
 			data[8*i+j] = a + 2*b;
 		}
 }
