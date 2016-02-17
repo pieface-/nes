@@ -20,7 +20,7 @@ Sprite::Sprite(char chr[16])
 char * Sprite::toString()
 {
 	char *out = new char[72];
-	for(int i = 0; i < 81; i++)
+	for(int i = 0; i < 72; i++)
 	{
 		if(((i+1)%9==0)&&(i!=71))
 			out[i] = '\n';
