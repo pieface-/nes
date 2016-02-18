@@ -1,6 +1,7 @@
 #include <iostream>
 //#include <string>
 #include <fstream>
+#include <stdlib.h>
 #include "util.h"
 #include "rom.h"
 #include "sprite.h"
@@ -8,12 +9,19 @@
 int main (int argc, char *argv[])
 {
 	using namespace std;
-
-	if(argc!=2)
+	int spriteNum = 0;
+	if(argc!=2 && argc!=3)
 	{
 		usage(argv[0]);
 		return 0;
 	}
+
+	if(argc==3)
+	{
+		char* end = new char;
+		spriteNum = strtol(argv[2], &end, 10);
+//		printf("\"%s\"", argv[2]);
+	}	
 
 	ifstream rom(argv[1], ios::in | ios::binary);
 
@@ -37,7 +45,7 @@ int main (int argc, char *argv[])
 	printf("%s is a valid rom\n", argv[1]);
 	printf("%s has %d PRG banks and %d CHR banks\n", argv[1], getPrgBanks(header), getChrBanks(header));
 	pos = setPos(header, CHR_BANK, 0);
-	pos += 0*16;
+	pos += spriteNum*16;
 	printf("The pos is at %d\n", pos);
 	rom.seekg(pos);
 	rom.read(spriteData, 16);	
